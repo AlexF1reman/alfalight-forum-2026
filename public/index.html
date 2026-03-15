@@ -139,38 +139,55 @@
       <div class="map-container">
         <div class="map-visual">
           <svg class="map-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="220" fill="#111827" />
-            <line x1="0" y1="55" x2="400" y2="55" stroke="#1f2937" stroke-width="1" />
-            <line x1="0" y1="110" x2="400" y2="110" stroke="#1f2937" stroke-width="1" />
-            <line x1="0" y1="165" x2="400" y2="165" stroke="#1f2937" stroke-width="1" />
-            <line x1="80" y1="0" x2="80" y2="220" stroke="#1f2937" stroke-width="1" />
-            <line x1="160" y1="0" x2="160" y2="220" stroke="#1f2937" stroke-width="1" />
-            <line x1="240" y1="0" x2="240" y2="220" stroke="#1f2937" stroke-width="1" />
-            <line x1="320" y1="0" x2="320" y2="220" stroke="#1f2937" stroke-width="1" />
-            <rect x="0" y="85" width="400" height="18" fill="#1d2535" rx="2" />
-            <rect x="0" y="118" width="400" height="12" fill="#1a2030" />
-            <rect x="105" y="0" width="22" height="220" fill="#1d2535" />
-            <rect x="260" y="0" width="14" height="220" fill="#1a2030" />
-            <rect x="20" y="20" width="75" height="55" rx="6" fill="#1e2840" />
-            <rect x="140" y="15" width="110" height="60" rx="6" fill="#1e2840" />
-            <rect x="290" y="25" width="95" height="48" rx="6" fill="#1e2840" />
-            <rect x="20" y="140" width="75" height="60" rx="6" fill="#1e2840" />
-            <rect x="140" y="145" width="60" height="55" rx="6" fill="#1e2840" />
-            <rect x="215" y="140" width="55" height="55" rx="6" fill="#1e2840" />
-            <rect x="290" y="145" width="95" height="55" rx="6" fill="#1e2840" />
-            <rect x="140" y="15" width="110" height="60" rx="6" fill="#2a3a1a" stroke="#e8ff5a" stroke-width="2" />
-            <text x="195" y="40" text-anchor="middle" fill="#e8ff5a" font-size="9" font-weight="bold" font-family="monospace">АЛЬФА</text>
-            <text x="195" y="52" text-anchor="middle" fill="#e8ff5a" font-size="9" font-weight="bold" font-family="monospace">БАНК</text>
-            <circle cx="132" cy="94" r="9" fill="#dc2626" />
-            <text x="132" y="98" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="monospace">M</text>
-            <text x="132" y="113" text-anchor="middle" fill="#9ca3af" font-size="7" font-family="monospace">Тех.парк</text>
-            <circle cx="195" cy="75" r="6" fill="#e8ff5a" opacity="0.3" />
-            <circle cx="195" cy="75" r="3.5" fill="#e8ff5a" />
-            <text x="200" y="97" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">пр-кт Андропова</text>
-            <text x="116" y="65" text-anchor="middle" fill="#4b5563" font-size="7" font-family="monospace" transform="rotate(-90,116,65)">ул. Си的主题</text>
-            <text x="355" y="210" fill="#4b5563" font-size="7" font-family="monospace">200 м</text>
-            <line x1="355" y1="205" x2="390" y2="205" stroke="#4b5563" stroke-width="1" />
-            <text x="20" y="210" fill="#6b7280" font-size="8" font-family="monospace">↑ N</text>
+            <!-- Background -->
+            <rect width="400" height="220" fill="#1a1a2e" />
+            
+            <!-- Major road - Andropova avenue (horizontal) -->
+            <rect x="0" y="90" width="400" height="24" fill="#2d2d44" rx="2" />
+            <line x1="0" y1="90" x2="400" y2="90" stroke="#3d3d5c" stroke-width="1" />
+            <line x1="0" y1="114" x2="400" y2="114" stroke="#3d3d5c" stroke-width="1" />
+            
+            <!-- Proletarsky avenue (vertical) -->
+            <rect x="120" y="0" width="20" height="220" fill="#2d2d44" rx="2" />
+            
+            <!-- District roads -->
+            <rect x="0" y="50" width="400" height="8" fill="#252538" />
+            <rect x="0" y="150" width="400" height="8" fill="#252538" />
+            <rect x="200" y="0" width="8" height="220" fill="#252538" />
+            <rect x="320" y="0" width="8" height="220" fill="#252538" />
+            
+            <!-- Buildings/blocks -->
+            <rect x="10" y="15" width="90" height="65" rx="4" fill="#252538" />
+            <rect x="10" y="160" width="90" height="50" rx="4" fill="#252538" />
+            <rect x="160" y="15" width="100" height="55" rx="4" fill="#252538" />
+            <rect x="160" y="155" width="80" height="55" rx="4" fill="#252538" />
+            <rect x="260" y="15" width="130" height="55" rx="4" fill="#252538" />
+            <rect x="260" y="155" width="130" height="55" rx="4" fill="#252538" />
+            
+            <!-- Venue location - Alfa Bank building -->
+            <rect x="155" y="130" width="90" height="50" rx="4" fill="#1e3a5f" stroke="#e8ff5a" stroke-width="2" />
+            <text x="200" y="155" text-anchor="middle" fill="#e8ff5a" font-size="8" font-weight="bold" font-family="monospace">18/6</text>
+            <text x="200" y="168" text-anchor="middle" fill="#e8ff5a" font-size="6" font-weight="bold" font-family="monospace">АНДРОПОВА</text>
+            
+            <!-- Metro station - Technopark -->
+            <rect x="165" y="85" width="40" height="30" rx="6" fill="#c41e3a" />
+            <text x="185" y="103" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="monospace">M</text>
+            <text x="185" y="125" text-anchor="middle" fill="#888" font-size="5" font-family="monospace">ТЕХНОПАРК</text>
+            
+            <!-- Pin marker -->
+            <circle cx="185" cy="70" r="8" fill="#e8ff5a" opacity="0.3" />
+            <circle cx="185" cy="70" r="4" fill="#e8ff5a" />
+            
+            <!-- Road labels -->
+            <text x="200" y="108" text-anchor="middle" fill="#666" font-size="6" font-family="monospace">пр-кт Андропова</text>
+            <text x="130" y="60" text-anchor="middle" fill="#555" font-size="5" font-family="monospace">пр-кт Пролетарский</text>
+            
+            <!-- Scale -->
+            <text x="355" y="210" fill="#555" font-size="6" font-family="monospace">100 м</text>
+            <line x1="355" y1="205" x2="380" y2="205" stroke="#555" stroke-width="1" />
+            <line x1="355" y1="203" x2="355" y2="207" stroke="#555" stroke-width="1" />
+            <line x1="380" y1="203" x2="380" y2="207" stroke="#555" stroke-width="1" />
+            <text x="20" y="210" fill="#666" font-size="6" font-family="monospace">↑ N</text>
           </svg>
         </div>
 
