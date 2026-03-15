@@ -138,103 +138,18 @@
 
       <div class="map-container">
         <div class="map-visual">
-          <svg class="map-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#1a1a2e"/>
-                <stop offset="100%" style="stop-color:#16162a"/>
-              </linearGradient>
-              <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#3d3d5c"/>
-                <stop offset="50%" style="stop-color:#2d2d44"/>
-                <stop offset="100%" style="stop-color:#252538"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="220" fill="url(#bgGrad)"/>
-            
-            <!-- German Centre area -->
-            <rect x="10" y="10" width="100" height="80" rx="6" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-            <rect x="20" y="20" width="35" height="30" rx="2" fill="#252545"/>
-            <rect x="60" y="20" width="35" height="30" rx="2" fill="#252545"/>
-            <rect x="20" y="55" width="75" height="25" rx="2" fill="#252545"/>
-            <text x="60" y="15" text-anchor="middle" fill="#e8ff5a" font-size="5" font-weight="bold" font-family="monospace">GERMAN CENTRE</text>
-            
-            <!-- Main venue - Andropova 18k6 -->
-            <rect x="140" y="10" width="120" height="90" rx="6" fill="#1e1e35" stroke="#e8ff5a" stroke-width="2"/>
-            <rect x="150" y="20" width="100" height="40" rx="3" fill="#1e3a5f"/>
-            <rect x="150" y="65" width="100" height="25" rx="3" fill="#252545"/>
-            <text x="200" y="42" text-anchor="middle" fill="#e8ff5a" font-size="9" font-weight="bold" font-family="monospace">18к6</text>
-            <text x="200" y="80" text-anchor="middle" fill="#888" font-size="5" font-family="monospace">пр-кт Андропова</text>
-            
-            <!-- Trofimova street area -->
-            <rect x="280" y="10" width="110" height="80" rx="6" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-            <rect x="290" y="20" width="40" height="25" rx="2" fill="#252545"/>
-            <rect x="335" y="20" width="40" height="25" rx="2" fill="#252545"/>
-            <rect x="290" y="50" width="85" height="30" rx="2" fill="#252545"/>
-            <text x="335" y="15" text-anchor="middle" fill="#4a4a6a" font-size="5" font-family="monospace">ул. Трофимова</text>
-            
-            <!-- Water/Marina area -->
-            <rect x="10" y="130" width="100" height="80" rx="6" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-            <rect x="20" y="140" width="30" height="25" rx="2" fill="#252545"/>
-            <rect x="55" y="140" width="30" height="25" rx="2" fill="#252545"/>
-            <rect x="20" y="170" width="65" height="30" rx="2" fill="#252545"/>
-            <text x="60" y="165" text-anchor="middle" fill="#4a4a6a" font-size="5" font-family="monospace">Причал</text>
-            <text x="60" y="175" text-anchor="middle" fill="#4a4a6a" font-size="4" font-family="monospace">Затон Новинки</text>
-            
-            <!-- Business center area -->
-            <rect x="140" y="130" width="120" height="80" rx="6" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-            <rect x="150" y="140" width="45" height="30" rx="2" fill="#252545"/>
-            <rect x="200" y="140" width="45" height="30" rx="2" fill="#252545"/>
-            <rect x="150" y="175" width="100" height="25" rx="2" fill="#252545"/>
-            <text x="200" y="160" text-anchor="middle" fill="#4a4a6a" font-size="5" font-family="monospace">Бизнес-центр</text>
-            
-            <!-- Nagatinskaya area -->
-            <rect x="280" y="130" width="110" height="80" rx="6" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-            <rect x="290" y="140" width="90" height="60" rx="2" fill="#252545"/>
-            <text x="335" y="165" text-anchor="middle" fill="#4a4a6a" font-size="5" font-family="monospace">ул. Нагатинская</text>
-            
-            <!-- Main roads -->
-            <rect x="0" y="105" width="400" height="20" fill="url(#roadGrad)" rx="2"/>
-            <line x1="0" y1="105" x2="400" y2="105" stroke="#4a4a6a" stroke-width="0.5" stroke-dasharray="4,4"/>
-            <line x1="0" y1="125" x2="400" y2="125" stroke="#4a4a6a" stroke-width="0.5" stroke-dasharray="4,4"/>
-            <rect x="115" y="0" width="25" height="220" fill="url(#roadGrad)" rx="2"/>
-            <line x1="115" y1="0" x2="115" y2="220" stroke="#4a4a6a" stroke-width="0.5" stroke-dasharray="4,4"/>
-            <line x1="140" y1="0" x2="140" y2="220" stroke="#4a4a6a" stroke-width="0.5" stroke-dasharray="4,4"/>
-            
-            <!-- Metro station -->
-            <rect x="148" y="108" width="30" height="24" rx="4" fill="#c41e3a" stroke="#a01830" stroke-width="1"/>
-            <circle cx="163" cy="120" r="8" fill="#c41e3a"/>
-            <text x="163" y="123" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="monospace">M</text>
-            <text x="163" y="140" text-anchor="middle" fill="#888" font-size="5" font-family="monospace">Технопарк</text>
-            
-            <!-- Distance to metro -->
-            <text x="195" y="115" text-anchor="middle" fill="#e8ff5a" font-size="4" font-family="monospace">267м</text>
-            
-            <!-- Pin marker -->
-            <circle cx="163" cy="95" r="10" fill="#e8ff5a" opacity="0.2"/>
-            <circle cx="163" cy="95" r="5" fill="#e8ff5a"/>
-            <circle cx="163" cy="95" r="2" fill="#1a1a2e"/>
-            
-            <!-- Road labels -->
-            <text x="200" y="115" text-anchor="middle" fill="#666" font-size="5" font-family="monospace">пр-кт Андропова</text>
-            <text x="127" y="70" text-anchor="middle" fill="#555" font-size="5" font-family="monospace" transform="rotate(-90,127,70)">пр-кт Пролетарский</text>
-            
-            <!-- Legend -->
-            <rect x="320" y="195" width="70" height="20" rx="3" fill="#1e1e35" stroke="#2a2a45" stroke-width="1"/>
-            <circle cx="330" cy="205" r="4" fill="#e8ff5a"/>
-            <text x="340" y="208" fill="#888" font-size="5" font-family="monospace">Место</text>
-            
-            <!-- Scale -->
-            <text x="355" y="212" fill="#555" font-size="5" font-family="monospace">50 м</text>
-            <line x1="355" y1="208" x2="380" y2="208" stroke="#555" stroke-width="1"/>
-            <line x1="355" y1="206" x2="355" y2="210" stroke="#555" stroke-width="1"/>
-            <line x1="380" y1="206" x2="380" y2="210" stroke="#555" stroke-width="1"/>
-            <text x="15" y="212" fill="#666" font-size="5" font-family="monospace">↑ N</text>
-          </svg>
+          <iframe 
+            src="https://yandex.ru/map-widget/v1/?z=17&ll=37.667632%2C55.081308&text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%90%D0%BD%D1%80%D0%BE%D0%BF%D0%BE%D0%B2%D0%B0%2C%2018%20%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81%206" 
+            width="100%" 
+            height="220" 
+            frameborder="0"
+            allowfullscreen="true"
+            loading="lazy">
+          </iframe>
         </div>
 
         <div class="map-info">
-          <div class="venue-name" id="venue-name">Центр Digital Hub</div>
+          <div class="venue-name" id="venue-name">Немецкий центр</div>
           <div class="venue-address" id="venue-address">
             г. Москва, пр-кт Андропова, 18, корп. 6<br />Конференц-зал, 1-й этаж
           </div>
