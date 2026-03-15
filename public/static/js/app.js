@@ -17,23 +17,23 @@ const SCHEDULE = [
     day: 1,
     date: "15 мая",
     slots: [
-      { time: "09:00", end: "10:00", title: "Регистрация, кофе", isBreak: true },
+      { time: "09:00", end: "10:00", title: "Регистрация", isBreak: true },
       { time: "10:00", end: "10:30", title: "Открытие ALFA LIGHT FORUM", isKeynote: true, speakers: [{ name: "Елена Тятенкова", company: "Альфа-Банк" }] },
       { time: "10:30", end: "11:15", title: "Цифровая трансформация банка", speakers: [{ name: "Мария Соколова", company: "VK Cloud" }] },
-      { time: "11:15", end: "11:30", title: "Перерыв", isBreak: true },
+      { time: "11:15", end: "11:30", title: "Кофе-брейк", isBreak: true },
       { time: "11:30", end: "12:15", title: "AI в финансовом секторе", speakers: [{ name: "Алексей Петров", company: "Яндекс" }] },
       { time: "12:15", end: "13:00", title: "Кибербезопасность 2026", speakers: [{ name: "Иван Сидоров", company: "Лаборатория Касперского" }] },
       { time: "13:00", end: "14:00", title: "Обед", isBreak: true },
       { time: "14:00", end: "14:45", title: "Мобильная разработка", speakers: [{ name: "Анна Кузнецова", company: "Тинькофф" }] },
       { time: "14:45", end: "15:30", title: "Облачные технологии", speakers: [{ name: "Дмитрий Волков", company: "SberCloud" }] },
-      { time: "15:30", end: "15:45", title: "Перерыв", isBreak: true },
-      { time: "15:45", end: "16:30", title: "Закрытие дня", isKeynote: true }
+      { time: "15:30", end: "15:45", title: "Кофе-брейк", isBreak: true },
+      { time: "15:45", end: "16:30", title: "Закрытие", isKeynote: true }
     ]
   }
 ];
 
 const SPEAKERS = [
-  { name: "Елена Тятенкова", company: "Альфа-Банк", role: "Руководитель", topics: ["Открытие"] },
+  { name: "Елена Тятенкова", company: "Альфа-Банк", role: "Старший вице-президент, Руководитель департамента", topics: ["Открытие"] },
   { name: "Мария Соколова", company: "VK Cloud", role: "Технический директор", topics: ["Cloud", "AI"] },
   { name: "Алексей Петров", company: "Яндекс", role: "Руководитель AI", topics: ["AI", "ML"] },
   { name: "Иван Сидоров", company: "Лаборатория Касперского", role: "Эксперт по безопасности", topics: ["Security"] },
@@ -43,7 +43,7 @@ const SPEAKERS = [
 
 const FAQ = [
   { q: "Какой дресс-код?", a: "Smart Casual - деловой стиль без галстука" },
-  { q: "Будут ли материалы докладов?", a: "Да, все материалы будут доступны в приложении после мероприятия" },
+  { q: "Будут ли материалы докладов?", a: "Да, все материалы будут доступны после мероприятия" },
   { q: "Где парковка?", a: "Для гостей мероприятия доступна бесплатная парковка у входа" },
   { q: "Можно ли прийти с коллегой?", a: "Приглашения именные, передача невозможна" }
 ];
@@ -185,6 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Map button
   document.getElementById('map-btn').onclick = () => {
-    window.open('https://yandex.ru/maps/?text=Москва,+ул.+Технологическая+42', '_blank');
+    window.open('https://yandex.ru/maps/-/CPFmfL~S', '_blank');
   };
 });
