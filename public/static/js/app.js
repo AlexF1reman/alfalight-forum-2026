@@ -74,7 +74,7 @@ const SPEAKERS = [
     photo: "/img/eat4.png",
   },
   {
-    name: "Мария Соколова",
+    name: "Андрей Борисович Соколов",
     company: "Альфа-Банк",
     role: "Председатель правления",
     topics: ["Cloud", "AI"],
