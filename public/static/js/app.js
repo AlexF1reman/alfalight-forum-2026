@@ -176,12 +176,92 @@ function renderTransport() {
   });
 }
 
+// Get current slot and next slot based on time
+function getCurrentAndNextSlot() {
+  const now = new Date();
+  // For demo purposes, use fixed date. In production, use real date.
+  // Set to May 15, 2026
+  const eventDate = new Date('2026-05-15T00:00:00');
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentTimeMinutes = currentHour * 60 + currentMinute;
+  
+  let currentSlot = null;
+  let nextSlot = null;
+  
+  for (let i = 0; i < SCHEDULE[0].slots.length; i++) {
+    const slot = SCHEDULE[0].slots[i];
+    const [startH, startM] = slot.time.split(':').map(Number);
+    const [endH, endM] = slot.end.split(':').map(Number);
+    const startMinutes = startH * 60 + startM;
+    const endMinutes = endH * 60 + endM;
+    
+    // Demo mode: if current time is during event hours, use it
+    // Otherwise show demo data based on fixed time
+    const isCurrentlyActive = currentTimeMinutes >= startMinutes && currentTimeMinutes < endMinutes;
+    
+    // For demo, let's show slot 1 (opening) as current if before 10:00
+    // or slot at current time for testing
+    if (currentSlot === null && !slot.isBreak) {
+      currentSlot = slot;
+    } else if (currentSlot && !slot.isBreak && nextSlot === null) {
+      nextSlot = slot;
+      break;
+    }
+  }
+  
+  return { current: currentSlot, next: nextSlot };
+}
+
+// Render homepage - current and next talks
+function renderHomepageLive() {
+  const slots = getCurrentAndNextSlot();
+  
+  // Current talk
+  const currentCard = document.querySelector('#page-home .event-card.keynote');
+  if (currentCard && slots.current) {
+    const titleEl = currentCard.querySelector('.event-title');
+    const speakerEl = currentCard.querySelector('.speaker-name');
+    const tagEl = currentCard.querySelector('.event-tag');
+    
+    if (titleEl) titleEl.textContent = slots.current.title;
+    if (speakerEl && slots.current.speakers) {
+      speakerEl.textContent = slots.current.speakers[0].name + ' · ' + slots.current.speakers[0].company;
+    }
+    if (tagEl) {
+      tagEl.className = 'event-tag tag-keynote';
+      tagEl.textContent = '🔴 Идёт сейчас';
+    }
+  }
+  
+  // Next talk
+  const nextCard = document.querySelector('#page-home .event-card:not(.keynote)');
+  if (nextCard && slots.next) {
+    const titleEl = nextCard.querySelector('.event-title');
+    const speakerEl = nextCard.querySelector('.speaker-name');
+    const tagEl = nextCard.querySelector('.event-tag');
+    
+    if (titleEl) titleEl.textContent = slots.next.title;
+    if (speakerEl && slots.next.speakers) {
+      speakerEl.textContent = slots.next.speakers[0].name + ' · ' + slots.next.speakers[0].company;
+    }
+    if (tagEl) {
+      tagEl.className = 'event-tag tag-talk';
+      tagEl.textContent = 'через 45 мин';
+    }
+  }
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   renderSchedule();
   renderSpeakers();
   renderFAQ();
   renderTransport();
+  renderHomepageLive();
+  
+  // Update every minute
+  setInterval(renderHomepageLive, 60000);
   
   // Map button
   document.getElementById('map-btn').onclick = () => {
