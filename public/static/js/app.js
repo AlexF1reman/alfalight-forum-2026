@@ -33,12 +33,12 @@ const SCHEDULE = [
 ];
 
 const SPEAKERS = [
-  { name: "Елена Тятенкова", company: "Альфа-Банк", role: "Старший вице-президент", topics: ["Открытие"], photo: "/img/speaker1.jpg" },
-  { name: "Мария Соколова", company: "VK Cloud", role: "Технический директор", topics: ["Cloud", "AI"], photo: "/img/speaker2.jpg" },
-  { name: "Алексей Петров", company: "Яндекс", role: "Руководитель AI", topics: ["AI", "ML"], photo: "/img/speaker3.jpg" },
-  { name: "Иван Сидоров", company: "Лаборатория Касперского", role: "Эксперт по безопасности", topics: ["Security"], photo: "/img/speaker4.jpg" },
-  { name: "Анна Кузнецова", company: "Тинькофф", role: "Lead Developer", topics: ["Mobile", "Flutter"], photo: "/img/speaker5.jpg" },
-  { name: "Дмитрий Волков", company: "SberCloud", role: "Директор по развитию", topics: ["Cloud"], photo: "/img/speaker6.jpg" }
+  { name: "Елена Тятенкова", company: "Альфа-Банк", role: "Старший вице-президент", topics: ["Открытие"], photo: "/img/eat4.png" },
+  { name: "Мария Соколова", company: "VK Cloud", role: "Технический директор", topics: ["Cloud", "AI"], photo: "/img/sok.jpg" },
+  { name: "Алексей Петров", company: "Яндекс", role: "Руководитель AI", topics: ["AI", "ML"], photo: "" },
+  { name: "Иван Сидоров", company: "Лаборатория Касперского", role: "Эксперт по безопасности", topics: ["Security"], photo: "" },
+  { name: "Анна Кузнецова", company: "Тинькофф", role: "Lead Developer", topics: ["Mobile", "Flutter"], photo: "" },
+  { name: "Дмитрий Волков", company: "SberCloud", role: "Директор по развитию", topics: ["Cloud"], photo: "" }
 ];
 
 const FAQ = [
