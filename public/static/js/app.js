@@ -33,12 +33,12 @@ const SCHEDULE = [
 ];
 
 const SPEAKERS = [
-  { name: "Елена Тятенкова", company: "Альфа-Банк", role: "Старший вице-президент, Руководитель департамента", topics: ["Открытие"] },
-  { name: "Мария Соколова", company: "VK Cloud", role: "Технический директор", topics: ["Cloud", "AI"] },
-  { name: "Алексей Петров", company: "Яндекс", role: "Руководитель AI", topics: ["AI", "ML"] },
-  { name: "Иван Сидоров", company: "Лаборатория Касперского", role: "Эксперт по безопасности", topics: ["Security"] },
-  { name: "Анна Кузнецова", company: "Тинькофф", role: "Lead Developer", topics: ["Mobile", "Flutter"] },
-  { name: "Дмитрий Волков", company: "SberCloud", role: "Директор по развитию", topics: ["Cloud"] }
+  { name: "Елена Тятенкова", company: "Альфа-Банк", role: "Старший вице-президент", topics: ["Открытие"], photo: "/img/speaker1.jpg" },
+  { name: "Мария Соколова", company: "VK Cloud", role: "Технический директор", topics: ["Cloud", "AI"], photo: "/img/speaker2.jpg" },
+  { name: "Алексей Петров", company: "Яндекс", role: "Руководитель AI", topics: ["AI", "ML"], photo: "/img/speaker3.jpg" },
+  { name: "Иван Сидоров", company: "Лаборатория Касперского", role: "Эксперт по безопасности", topics: ["Security"], photo: "/img/speaker4.jpg" },
+  { name: "Анна Кузнецова", company: "Тинькофф", role: "Lead Developer", topics: ["Mobile", "Flutter"], photo: "/img/speaker5.jpg" },
+  { name: "Дмитрий Волков", company: "SberCloud", role: "Директор по развитию", topics: ["Cloud"], photo: "/img/speaker6.jpg" }
 ];
 
 const FAQ = [
@@ -129,8 +129,13 @@ function renderSpeakers() {
     const initials = speaker.name.split(' ').map(n => n[0]).join('');
     const topics = speaker.topics.map(t => `<span class="topic-pill">${t}</span>`).join('');
     
+    // Use photo if available, otherwise show initials
+    const photoHtml = speaker.photo 
+      ? `<img src="${speaker.photo}" alt="${speaker.name}" class="speaker-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="speaker-photo-placeholder" style="display:none">${initials}</div>`
+      : `<div class="speaker-photo-placeholder">${initials}</div>`;
+    
     card.innerHTML = `
-      <div class="speaker-photo">${initials}</div>
+      ${photoHtml}
       <div class="speaker-card-name">${speaker.name}</div>
       <div class="speaker-card-role">${speaker.role}<br/>${speaker.company}</div>
       <div class="speaker-topics">${topics}</div>
