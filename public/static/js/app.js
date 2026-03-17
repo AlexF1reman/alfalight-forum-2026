@@ -390,6 +390,7 @@ function renderHomepageLive() {
     const titleEl = currentCard.querySelector(".event-title");
     const speakerEl = currentCard.querySelector(".speaker-name");
     const tagEl = currentCard.querySelector(".event-tag");
+    const avatarEl = currentCard.querySelector(".speaker-ava-placeholder");
 
     if (titleEl) titleEl.textContent = slots.current.title;
     if (speakerEl && slots.current.speakers) {
@@ -397,6 +398,14 @@ function renderHomepageLive() {
         slots.current.speakers[0].name +
         " · " +
         slots.current.speakers[0].company;
+      
+      // Try to find speaker photo
+      const speakerName = slots.current.speakers[0].name;
+      const speaker = SPEAKERS.find(s => s.name === speakerName);
+      
+      if (avatarEl && speaker && speaker.photo) {
+        avatarEl.outerHTML = `<img src="${speaker.photo}" alt="${speakerName}" class="speaker-ava" onerror="this.outerHTML='<div class=\\'speaker-ava-placeholder\\'>${speakerName.split(' ').map(n => n[0]).join('')}</div>'" />`;
+      }
     }
     if (tagEl) {
       tagEl.className = "event-tag tag-keynote";
@@ -412,11 +421,20 @@ function renderHomepageLive() {
     const titleEl = nextCard.querySelector(".event-title");
     const speakerEl = nextCard.querySelector(".speaker-name");
     const tagEl = nextCard.querySelector(".event-tag");
+    const avatarEl = nextCard.querySelector(".speaker-ava-placeholder");
 
     if (titleEl) titleEl.textContent = slots.next.title;
     if (speakerEl && slots.next.speakers) {
       speakerEl.textContent =
         slots.next.speakers[0].name + " · " + slots.next.speakers[0].company;
+      
+      // Try to find speaker photo
+      const speakerName = slots.next.speakers[0].name;
+      const speaker = SPEAKERS.find(s => s.name === speakerName);
+      
+      if (avatarEl && speaker && speaker.photo) {
+        avatarEl.outerHTML = `<img src="${speaker.photo}" alt="${speakerName}" class="speaker-ava" onerror="this.outerHTML='<div class=\\'speaker-ava-placeholder\\'>${speakerName.split(' ').map(n => n[0]).join('')}</div>'" />`;
+      }
     }
     if (tagEl) {
       tagEl.className = "event-tag tag-talk";
