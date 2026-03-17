@@ -191,13 +191,23 @@ function renderScheduleDay(day) {
 
     let speakerHtml = "";
     if (slot.speakers && slot.speakers.length > 0) {
-      speakerHtml = `<div class="event-speaker">
-        <div class="speaker-ava-placeholder">${slot.speakers[0].name
-          .split(" ")
-          .map((n) => n[0])
-          .join("")}</div>
-        <span class="speaker-name">${slot.speakers[0].name} · ${slot.speakers[0].company}</span>
-      </div>`;
+      const speakerName = slot.speakers[0].name;
+      const speaker = SPEAKERS.find(s => s.name === speakerName);
+      const initials = speakerName.split(" ").map(n => n[0]).join("");
+      
+      // Use photo if available, otherwise show initials
+      if (speaker && speaker.photo) {
+        speakerHtml = `<div class="event-speaker">
+          <img src="${speaker.photo}" alt="${speakerName}" class="speaker-ava" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="speaker-ava-placeholder" style="display:none">${initials}</div>
+          <span class="speaker-name">${speakerName} · ${slot.speakers[0].company}</span>
+        </div>`;
+      } else {
+        speakerHtml = `<div class="event-speaker">
+          <div class="speaker-ava-placeholder">${initials}</div>
+          <span class="speaker-name">${speakerName} · ${slot.speakers[0].company}</span>
+        </div>`;
+      }
     }
 
     card.innerHTML = `
