@@ -281,16 +281,19 @@ function renderTransport() {
 // Get current slot and next slot based on time
 function getCurrentAndNextSlot() {
   const now = new Date();
-  // For demo purposes, use fixed date. In production, use real date.
-  // Set to May 15, 2026
+  // Set event date to May 15, 2026
   const eventDate = new Date("2026-05-15T00:00:00");
+  
+  // Use current time for calculation
   const currentHour = now.getHours();
   const currentMinute = now.getMinutes();
   const currentTimeMinutes = currentHour * 60 + currentMinute;
 
   let currentSlot = null;
   let nextSlot = null;
+  let nextSlotStartMinutes = null;
 
+  // First, find the current slot based on actual time
   for (let i = 0; i < SCHEDULE[0].slots.length; i++) {
     const slot = SCHEDULE[0].slots[i];
     const [startH, startM] = slot.time.split(":").map(Number);
@@ -298,22 +301,83 @@ function getCurrentAndNextSlot() {
     const startMinutes = startH * 60 + startM;
     const endMinutes = endH * 60 + endM;
 
-    // Demo mode: if current time is during event hours, use it
-    // Otherwise show demo data based on fixed time
-    const isCurrentlyActive =
-      currentTimeMinutes >= startMinutes && currentTimeMinutes < endMinutes;
-
-    // For demo, let's show slot 1 (opening) as current if before 10:00
-    // or slot at current time for testing
-    if (currentSlot === null && !slot.isBreak) {
+    // Check if current time is within this slot
+    if (currentTimeMinutes >= startMinutes && currentTimeMinutes < endMinutes && !slot.isBreak) {
       currentSlot = slot;
-    } else if (currentSlot && !slot.isBreak && nextSlot === null) {
-      nextSlot = slot;
+      // Find next non-break slot after current
+      for (let j = i + 1; j < SCHEDULE[0].slots.length; j++) {
+        const next = SCHEDULE[0].slots[j];
+        if (!next.isBreak) {
+          nextSlot = next;
+          const [nextStartH, nextStartM] = next.time.split(":").map(Number);
+          nextSlotStartMinutes = nextStartH * 60 + nextStartM;
+          break;
+        }
+      }
       break;
     }
   }
 
-  return { current: currentSlot, next: nextSlot };
+  // If no current slot found, find the first upcoming non-break slot
+  if (!currentSlot) {
+    for (let i = 0; i < SCHEDULE[0].slots.length; i++) {
+      const slot = SCHEDULE[0].slots[i];
+      const [startH, startM] = slot.time.split(":").map(Number);
+      const startMinutes = startH * 60 + startM;
+
+      if (!slot.isBreak && startMinutes > currentTimeMinutes) {
+        currentSlot = null; // No current talk
+        nextSlot = slot;
+        nextSlotStartMinutes = startMinutes;
+        
+        // Find what comes before the next slot for "currently" display
+        for (let j = i - 1; j >= 0; j--) {
+          const prev = SCHEDULE[0].slots[j];
+          if (!prev.isBreak) {
+            currentSlot = prev;
+            break;
+          }
+        }
+        break;
+      }
+    }
+  }
+
+  // Calculate time remaining to next slot
+  let timeRemainingMinutes = null;
+  if (nextSlot && nextSlotStartMinutes !== null) {
+    timeRemainingMinutes = nextSlotStartMinutes - currentTimeMinutes;
+  }
+
+  return { 
+    current: currentSlot, 
+    next: nextSlot,
+    timeRemaining: timeRemainingMinutes
+  };
+}
+
+// Format time remaining to human-readable string
+function formatTimeRemaining(minutes) {
+  if (minutes === null || minutes <= 0) {
+    return "Начинается";
+  }
+  
+  if (minutes < 60) {
+    return `через ${minutes} мин`;
+  }
+  
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  
+  if (hours === 1) {
+    return mins > 0 ? `через 1 час ${mins} мин` : `через 1 час`;
+  }
+  
+  if (hours < 24) {
+    return mins > 0 ? `через ${hours} ч ${mins} мин` : `через ${hours} ч`;
+  }
+  
+  return `через ${hours} часов`;
 }
 
 // Render homepage - current and next talks
@@ -356,7 +420,9 @@ function renderHomepageLive() {
     }
     if (tagEl) {
       tagEl.className = "event-tag tag-talk";
-      tagEl.textContent = "через 45 мин";
+      // Use dynamic time remaining
+      const timeText = formatTimeRemaining(slots.timeRemaining);
+      tagEl.textContent = timeText;
     }
   }
 }
