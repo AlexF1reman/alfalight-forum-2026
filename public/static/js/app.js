@@ -290,7 +290,8 @@ function renderTransport() {
 
 // Get current slot and next slot based on time
 function getCurrentAndNextSlot() {
-  const now = new Date();
+  // DEMO MODE: Simulating time during event
+  const now = new Date("2026-05-15T10:25:00");
   // Set event date to May 15, 2026
   const eventDate = new Date("2026-05-15T00:00:00");
   
