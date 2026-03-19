@@ -15,19 +15,19 @@ try {
 const SCHEDULE = [
   {
     day: 1,
-    date: "15 мая",
+    date: "18 марта",
     slots: [
       { time: "09:00", end: "10:00", title: "Регистрация", isBreak: true },
       {
-        time: "10:00",
-        end: "10:30",
+        time: "22:35",
+        end: "22:45",
         title: "Открытие ALFA LIGHT FORUM",
         isKeynote: true,
         speakers: [{ name: "Елена Тятенкова", company: "Альфа-Банк" }],
       },
       {
-        time: "10:30",
-        end: "11:15",
+        time: "22:46",
+        end: "23:15",
         title: "Цифровая трансформация банка",
         speakers: [{ name: "Андрей Борисович Соколов", company: "Альфа-Банк" }],
       },
