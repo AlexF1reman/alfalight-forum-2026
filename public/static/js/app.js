@@ -15,19 +15,19 @@ try {
 const SCHEDULE = [
   {
     day: 1,
-    date: "18 марта",
+    date: "19 марта",
     slots: [
       { time: "09:00", end: "10:00", title: "Регистрация", isBreak: true },
       {
-        time: "22:35",
-        end: "22:45",
+        time: "09:25",
+        end: "09:30",
         title: "Открытие ALFA LIGHT FORUM",
         isKeynote: true,
         speakers: [{ name: "Елена Тятенкова", company: "Альфа-Банк" }],
       },
       {
-        time: "22:46",
-        end: "23:15",
+        time: "09:30",
+        end: "09:35",
         title: "Цифровая трансформация банка",
         speakers: [{ name: "Андрей Борисович Соколов", company: "Альфа-Банк" }],
       },
@@ -291,9 +291,9 @@ function renderTransport() {
 // Get current slot and next slot based on time
 function getCurrentAndNextSlot() {
   // DEMO MODE: Simulating time during event
-  const now = new Date("2026-05-15T10:25:00");
+  const now = new Date("2026-03-19T09:20:00");
   // Set event date to May 15, 2026
-  const eventDate = new Date("2026-05-15T00:00:00");
+  const eventDate = new Date("2026-03-19T00:00:00");
   
   // Use current time for calculation
   const currentHour = now.getHours();
