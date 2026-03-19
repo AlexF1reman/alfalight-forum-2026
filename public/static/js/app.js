@@ -17,17 +17,17 @@ const SCHEDULE = [
     day: 1,
     date: "19 марта",
     slots: [
-      { time: "09:00", end: "10:00", title: "Регистрация", isBreak: true },
+      { time: "09:40", end: "10:00", title: "Регистрация", isBreak: true },
       {
-        time: "09:25",
-        end: "09:30",
+        time: "09:40",
+        end: "10:00",
         title: "Открытие ALFA LIGHT FORUM",
         isKeynote: true,
         speakers: [{ name: "Елена Тятенкова", company: "Альфа-Банк" }],
       },
       {
-        time: "09:30",
-        end: "09:35",
+        time: "10:00",
+        end: "10:05",
         title: "Цифровая трансформация банка",
         speakers: [{ name: "Андрей Борисович Соколов", company: "Альфа-Банк" }],
       },
@@ -290,8 +290,8 @@ function renderTransport() {
 
 // Get current slot and next slot based on time
 function getCurrentAndNextSlot() {
-  // DEMO MODE: Simulating time during event
-  const now = new Date("2026-03-19T09:20:00");
+  // DEMO MODE: Simulating 9:55 - 5 minutes before next speaker at 10:00
+  const now = new Date("2026-03-19T09:55:00");
   // Set event date to May 15, 2026
   const eventDate = new Date("2026-03-19T00:00:00");
   
